@@ -754,16 +754,6 @@ footer .big{font-family:var(--head);font-size:clamp(22px,6vw,40px);color:#fff;te
     <h2 class="rv">Шесть разборов<br>на YouTube</h2>
     <p class="sub rv">Все шесть роликов проверены: публичные, доступные, по нужной теме. Открываются на YouTube в новой вкладке.</p>
     <div class="vgrid" id="vgrid"></div>
-    <div class="card rv" style="margin-top:18px;background:rgba(255,61,154,.08);border-color:rgba(255,61,154,.28)">
-      <h3 style="font-size:18px">Если карточка не открывается или превью не грузится</h3>
-      <p style="margin-top:10px;color:var(--muted);font-size:14.5px">
-        Это не поломка страницы: сами ролики живы и общедоступны — значит, до YouTube не доходит ваша сеть
-        (провайдер, корпоративный фильтр или блокировщик рекламы режет <code style="color:var(--lilac)">i.ytimg.com</code>).
-        Превью в таком случае заменяется нарисованной заглушкой, а карточка продолжает работать.
-        Ссылки ниже можно скопировать и открыть любым удобным способом:
-      </p>
-      <div id="plainlinks" style="margin-top:12px;font-family:'Courier New',monospace;font-size:13px;line-height:2"></div>
-    </div>
   </div>
 </section>
 
@@ -1233,18 +1223,6 @@ VIDS.forEach(function(v){
   a.addEventListener('click',function(){ markStep('video'); });
   vg.appendChild(a);
 });
-
-/* текстовый дубль ссылок — на случай, если карточки не открываются */
-var pl=document.getElementById('plainlinks');
-if(pl){
-  VIDS.forEach(function(v){
-    var row=document.createElement('div');
-    row.innerHTML='<span style="color:var(--muted-2)">'+v.b+'</span> · '+
-      '<a href="https://www.youtube.com/watch?v='+v.id+'" target="_blank" rel="noopener noreferrer">'+
-      'youtube.com/watch?v='+v.id+'</a>';
-    pl.appendChild(row);
-  });
-}
 
 /* ================= EXERCISES ================= */
 var EX=[
